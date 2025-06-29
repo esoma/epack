@@ -3,21 +3,14 @@ from __future__ import annotations
 __all__ = ["Pack2d", "Packed2dItem"]
 
 
-# emath
-from emath import UVector2
-
-# python
 from typing import Mapping
 from typing import Sequence
 
+from emath import UVector2
+
 
 class Pack2d:
-    def __init__(
-        self,
-        bin_size: UVector2,
-        *,
-        max_bins: int | None = None,
-    ):
+    def __init__(self, bin_size: UVector2, *, max_bins: int | None = None):
         if not isinstance(bin_size, UVector2):
             raise TypeError("bin size must be UVector2")
         self._bin_size = bin_size

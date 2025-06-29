@@ -34,7 +34,7 @@ jobs:
         architecture: ${{ matrix.python-arch }}
 
     - name: Install Poetry
-      uses: snok/install-poetry@v1
+      uses: snok/install-poetry@v1.4.1
 
     - name: Build
       run: |

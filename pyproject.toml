@@ -1,8 +1,11 @@
-[tool.poetry]
+[project]
 name = "epack"
+requires-python = ">=3.12"
 version = "0.1.0"
 description = "Bin packing"
-authors = ["Erik Soma <stillusingirc@gmail.com>"]
+authors = [
+    {name="Erik Soma",  email="stillusingirc@gmail.com"}
+]
 
 [tool.poetry.dependencies]
 python = "^3.12"
@@ -15,3 +18,10 @@ pytest-cov = "4.1.0"
 [build-system]
 requires = ["poetry-core", "setuptools==69.0.2"]
 build-backend = "poetry.core.masonry.api"
+
+[virtualenvs]
+in-project = true
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"

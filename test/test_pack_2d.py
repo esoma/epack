@@ -1,15 +1,10 @@
-# epack
-from epack import Pack2d
-from epack import Packed2dItem
+from itertools import permutations
 
-# emath
+import pytest
 from emath import UVector2
 
-# pytest
-import pytest
-
-# python
-from itertools import permutations
+from epack import Pack2d
+from epack import Packed2dItem
 
 
 def test_init():
@@ -84,14 +79,7 @@ def test_pack_tight(width, height):
 
 
 @pytest.mark.parametrize(
-    "items",
-    permutations(
-        [
-            UVector2(51, 51),
-            UVector2(50, 51),
-            UVector2(49, 51),
-        ]
-    ),
+    "items", permutations([UVector2(51, 51), UVector2(50, 51), UVector2(49, 51)])
 )
 def test_backfill(items):
     pack = Pack2d(UVector2(100, 100))
@@ -106,14 +94,7 @@ def test_backfill(items):
 
 
 @pytest.mark.parametrize(
-    "items",
-    permutations(
-        [
-            UVector2(51, 50),
-            UVector2(50, 50),
-            UVector2(49, 50),
-        ]
-    ),
+    "items", permutations([UVector2(51, 50), UVector2(50, 50), UVector2(49, 50)])
 )
 def test_newline(items):
     pack = Pack2d(UVector2(100, 100))
@@ -128,14 +109,7 @@ def test_newline(items):
 
 
 @pytest.mark.parametrize(
-    "items",
-    permutations(
-        [
-            UVector2(52, 30),
-            UVector2(51, 20),
-            UVector2(50, 10),
-        ]
-    ),
+    "items", permutations([UVector2(52, 30), UVector2(51, 20), UVector2(50, 10)])
 )
 def test_last_line_expansion(items):
     pack = Pack2d(UVector2(100, 100))
@@ -157,13 +131,7 @@ def test_last_line_expansion(items):
 @pytest.mark.parametrize(
     "items",
     permutations(
-        [
-            UVector2(10, 40),
-            UVector2(52, 30),
-            UVector2(51, 20),
-            UVector2(50, 10),
-            UVector2(50, 1),
-        ]
+        [UVector2(10, 40), UVector2(52, 30), UVector2(51, 20), UVector2(50, 10), UVector2(50, 1)]
     ),
 )
 def test_repack(items):
